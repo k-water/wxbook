@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/books/books",
     "pages/logs/logs"
   ],
   "window":{

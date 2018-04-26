@@ -6,7 +6,7 @@ App({
   // 生命周期函数--监听小程序初始化
   onLaunch: function () {
     let that = this
-    that.checkLoginStatus()
+    // that.checkLoginStatus()
   },
 
 
@@ -74,7 +74,7 @@ App({
                    // 解密算法的向量
                   iv: infoRes.iv
                 },
-                method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                // method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
                 // header: {}, // 设置请求的 header
                 success: function (res) {
                   // success
