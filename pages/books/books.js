@@ -32,7 +32,7 @@ Page({
     }
 
     navigateUrl = navigateUrl.substring(0, navigateUrl.length - 1)
-
+    console.log(navigateUrl)
     wx.navigateTo({
       url: navigateUrl,
       success: function(res){

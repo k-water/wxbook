@@ -13,7 +13,6 @@ App({
   checkLoginStatus: function () {
     let that = this
     let loginFlag = wx.getStorageSync('loginFlag')
-    console.log(loginFlag)
     if (loginFlag) {
       // 校验用户当前session_key是否有效
       wx.checkSession({

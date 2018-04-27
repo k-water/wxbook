@@ -2,6 +2,7 @@
   "pages": [
     "pages/books/books",
     "pages/my/my",
+    "pages/detail/detail",
     "pages/logs/logs"
   ],
   "window": {
