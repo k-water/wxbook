@@ -13,6 +13,7 @@ App({
   checkLoginStatus: function () {
     let that = this
     let loginFlag = wx.getStorageSync('loginFlag')
+    console.log(loginFlag)
     if (loginFlag) {
       // 校验用户当前session_key是否有效
       wx.checkSession({
@@ -41,14 +42,14 @@ App({
     let that = this
     wx.login({
       success: function (loginRes) {
-        if (loginRes) {
+        if (loginRes.code) {
           wx.getUserInfo({
             // 是否带上登录态信息
-            withCredentials: true, 
+            withCredentials: true,
 
             success: function (infoRes) {
               // success
-              console.log(infoRes, '>>>')
+              console.log(infoRes)
 
               /**
                * @desc: 获取用户信息 期望数据如下 
@@ -64,20 +65,21 @@ App({
                 url: api.loginUrl,
                 data: {
                   // 临时登录凭证code 
-                  code: loginRes.code, 
+                  code: loginRes.code,
                   // 用户非敏感信息
                   rawData: infoRes.rawData,
                   // 签名
                   signature: infoRes.signature,
                   // 用户敏感信息
                   encryptedData: infoRes.encryptedData,
-                   // 解密算法的向量
+                  // 解密算法的向量
                   iv: infoRes.iv
                 },
-                // method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
                 // header: {}, // 设置请求的 header
                 success: function (res) {
                   // success
+                  console.log(res)
                   console.log('login success')
                   res = res.data
 
@@ -87,7 +89,7 @@ App({
                     wx.setStorageSync('loginFlag', res.skey)
                     callback()
                   } else {
-                    that.showInfo(res.errmsg);
+                    that.showInfo(res.errmsg)
                   }
                 },
                 fail: function (error) {
@@ -105,7 +107,9 @@ App({
             }
           })
         } else {
-
+          // 获取 code 失败
+          that.showInfo('登录失败');
+          console.log('调用wx.login获取code失败');
         }
       },
       fail: function (error) {
@@ -122,7 +126,6 @@ App({
     wx.getSetting({
       success: function (res) {
         if (!res.authSetting['scope.userInfo']) {
-          // 调起客户端小程序设置界面，返回用户设置的操作结果
           wx.openSetting({
             success: function (authSetting) {
               console.log(authSetting)

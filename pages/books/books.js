@@ -14,7 +14,7 @@ Page({
     interval: 3000,
     duration: 1000,
     circular: true, // 是否采用衔接滑动
-    sideMargin: '100rpx',
+    sideMargin: '150rpx',
     showLoading: true
   },
 
