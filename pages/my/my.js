@@ -41,7 +41,13 @@ Page({
   },
   goMyBooks: function () {
     wx.navigateTo({
-      url: '../myBooks/myBooks'
+      url: '../myBooks/myBooks',
+      success: function() {
+
+      },
+      fail: function(err) {
+        console.log(err)
+      }
     })
   },
   /**
