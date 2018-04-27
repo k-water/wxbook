@@ -6,7 +6,7 @@ App({
   // 生命周期函数--监听小程序初始化
   onLaunch: function () {
     let that = this
-    // that.checkLoginStatus()
+    that.checkLoginStatus()
   },
 
 
