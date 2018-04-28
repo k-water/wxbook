@@ -162,20 +162,17 @@ App({
       wx.saveFile({
         tempFilePath: filePath,
         success: function (res) {
-          // success
-          let saveFilePath = res.saveFilePath
-          wx.setStorageSync(key, saveFilePath)
-          resolve(saveFilePath)
+          // 保存成功 在Storage中标记 下次不再下载
+          let savedFilePath = res.savedFilePath
+          wx.setStorageSync(key, savedFilePath)
+          resolve(savedFilePath)
         },
         fail: function () {
-          // fail
           reject(false)
-        },
-        complete: function () {
-          // complete
         }
       })
     })
+
   },
   openBook: function (filePath) {
     wx.openDocument({
