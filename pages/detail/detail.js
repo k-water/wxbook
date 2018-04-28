@@ -144,7 +144,7 @@ Page({
     let that = this
     let requestData = {
       bookid: that.data.bookInfo.id,
-      skey: app.getLoadingFlag()
+      skey: app.getLoginFlag()
     }
 
     wx.request({
@@ -153,6 +153,7 @@ Page({
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       // header: {}, // 设置请求的 header
       success: function(res){
+        console.log(res)
         // success
         if (res.data.result === 0) {
           that.setData({

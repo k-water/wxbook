@@ -59,7 +59,7 @@ Page({
       let requestData = {
         skey: app.getLoginFlag(),
         content: that.data.comment,
-        bookid: thata.data.bookInfo.id,
+        bookid: that.data.bookInfo.id,
         formid: formId
       }
 

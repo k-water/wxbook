@@ -48,7 +48,7 @@
     <view class="comment-area" wx:else>
       <!-- 渲染评论 -->
       <block wx:if="{{commentList.length}}">
-        <view class="comment-item" wx:for="{{commentList}}" wx:ke="index">
+        <view class="comment-item" wx:for="{{commentList}}" wx:key="index">
           <view class="avatar-container">
             <image mode="scaleToFill" src="{{item.uavatar}}" class="user-avatar"></image>
           </view>
