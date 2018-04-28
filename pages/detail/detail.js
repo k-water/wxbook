@@ -11,6 +11,29 @@ Page({
     downloadPercent: 0
   },
 
+  goComment: function(ev) {
+    let info = ev.currentTarget.dataset
+    let navigateUrl = '../comment/comment?'
+
+    for(let key in info) {
+      info[key] = encodeURIComponent(info[key])
+      navigateUrl += key + '=' + info[key] + '&'
+    }
+
+    navigateUrl = navigateUrl.substring(0, navigateUrl.length - 1)
+
+    wx.navigateTo({
+      url: navigateUrl,
+      success: function(res){
+        // success
+      },
+      fail: function(err) {
+        // fail
+        throw(err)
+      }
+    })
+  },
+
   readBook: function () {
     let that = this
     let fileUrl = that.data.bookInfo.fileUrl

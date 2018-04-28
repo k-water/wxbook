@@ -4,6 +4,7 @@
     "pages/my/my",
     "pages/detail/detail",
     "pages/myBooks/myBooks",
+    "pages/comment/comment",
     "pages/logs/logs"
   ],
   "window": {
